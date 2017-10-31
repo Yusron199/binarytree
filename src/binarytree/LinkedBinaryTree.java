@@ -3,7 +3,7 @@ package binarytree;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class LinkedBinaryTree extends ExtendedBinaryTreeClass implements BinaryTree, Cloneable{
+public class LinkedBinaryTree extends ExtendedBinaryTreeClass implements BinaryTreeInterFace, Cloneable{
     BinaryTreeNode root;
     static Method visit;
     static Object[] visitArgs = new Object[1];
@@ -73,7 +73,7 @@ public class LinkedBinaryTree extends ExtendedBinaryTreeClass implements BinaryT
     }
     
     @Override
-    public BinaryTree removeLeftSubtree(){
+    public BinaryTreeInterFace removeLeftSubtree(){
         if(root == null){
             throw new IllegalArgumentException("tree is empty");
         }
@@ -81,11 +81,11 @@ public class LinkedBinaryTree extends ExtendedBinaryTreeClass implements BinaryT
         leftSubtree.root = root.leftChild;
         root.leftChild = null;
         
-        return (BinaryTree) leftSubtree;
+        return (BinaryTreeInterFace) leftSubtree;
     }
     
     @Override
-    public BinaryTree removeRightSubtree(){
+    public BinaryTreeInterFace removeRightSubtree(){
         if(root == null){
             throw new IllegalArgumentException("tree is empty");
         }
@@ -93,7 +93,7 @@ public class LinkedBinaryTree extends ExtendedBinaryTreeClass implements BinaryT
         rightSubtree.root = root.rightChild;
         root.rightChild = null;
         
-        return (BinaryTree) rightSubtree;
+        return (BinaryTreeInterFace) rightSubtree;
     }
     
     public void preOrderOutput(){
